@@ -8,16 +8,15 @@
   <script>
     $(function() {
       console.log("Page ready!");
-      $.ajax({
-        url: 'http://api.vateud.net/online/atc/eg.json',
-        dataType: 'json',
-        success: function(data) {
-          for (var i = 0; i < data.length; i++) {
-             var callsign = data[i].callsign;
-             $("div.list").html("<p>" + callsign + "</p><br>");
-          }
-         
-        }
+      $(".subButton").click(function() {
+        var station1 = document.getElementById("station1").value;
+        var station2 = document.getElementById("station2").value;
+        var station3 = document.getElementById("station3").value;
+        var station4 = document.getElementById("station4").value;
+        var station5 = document.getElementById("station5").value;
+        var options = { s1: station1, s2: station2, s3: station3, s4: station4, s5: station5 };
+        var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
+        document.location = location;
       });
     });
   </script>
@@ -39,8 +38,5 @@
   <input type="text" id="station5">
   <br>
   <button class="subButton" id="subButton">Submit</button>
-  <div class="list">
-    
-  </div>
 </body>
 </html>
