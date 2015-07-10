@@ -12,9 +12,9 @@
         url: 'http://api.vateud.net/online/atc/eg.json',
         dataType: 'json',
         success: function(data) {
-          var i;
-          for (i = 0; i < data.length; i++) {
-             $(".instruct").text(data[i].callsign + "<br>");
+          for (var i = 0; i < data.length; i++) {
+             var callsign = data[i].callsign;
+             $("div.list").html("<p>" + callsign + "</p><br>");
           }
          
         }
@@ -39,5 +39,8 @@
   <input type="text" id="station5">
   <br>
   <button class="subButton" id="subButton">Submit</button>
+  <div class="list">
+    
+  </div>
 </body>
 </html>
