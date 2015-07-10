@@ -9,10 +9,14 @@
     $(function() {
       console.log("Page ready!");
       $.ajax({
-        url: 'http://api.openweathermap.org/data/2.5/weather?q=London,UK',
+        url: 'http://api.vateud.net/online/atc/eg.json',
         dataType: 'json',
         success: function(data) {
-          $(".instruct").text(data.name + ", " + data.sys.country);
+          var i;
+          for (i = 0; i < data.length; i++) {
+             $(".instruct").text(data[i].callsign + "<br>");
+          }
+         
         }
       });
     });
