@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    
+  </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
     $(function() {
       console.log("Page ready!");
+      $.ajax({
+        url: 'http://api.openweathermap.org/data/2.5/weather?q=London,UK',
+        dataType: 'json',
+        success: function(data) {
+          console.log(data.name + ", " + data.sys.country);
+        }
+      })
     });
   </script>
 </head>
 
 <body>
-  
+  <h1>VATViewerPebble settings</h1>
+  <h3>At the moment, only 5 FIRs/stations are available.</h3>
+  <p class="instruct"></p>
+  <p>Station 1</p>
+  <input type="text" id="station1">
+  <p>Station 2</p>
+  <input type="text" id="station2">
+  <p>Station 3</p>
+  <input type="text" id="station3">
+  <p>Station 4</p>
+  <input type="text" id="station4">
+  <p>Station 5</p>
+  <input type="text" id="station5">
+  <br>
+  <button class="subButton" id="subButton">Submit</button>
 </body>
 </html>
